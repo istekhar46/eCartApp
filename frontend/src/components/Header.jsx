@@ -72,12 +72,14 @@ const Header = () => {
           {/* =============== menu =========== */}
           <div className="navigation" ref={menuRef} onClick={toggleMenu}>
             <ul className="menu flex items-center gap-[2.7rem]">
+              <Link to='/cart'>
               <li className="text-[35px] relative cursor-pointer hover:text-primaryColor">
                 <AiOutlineShoppingCart />
                 <p className="absolute bottom-0 right-0 text-white font-bold text-[12px] bg-textColor rounded-full w-[50%] flex justify-center items-center">
                   2
                 </p>
               </li>
+              </Link>
 
               {navLinks.map((link, index) => (
                 <li key={index}>

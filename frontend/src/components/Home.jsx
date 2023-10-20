@@ -1,9 +1,19 @@
-import React from 'react'
+import { useEffect, useReducer } from "react";
+import { useCartContext } from "../context/context";
+import { cartReducer, initialState } from "../context/reducers";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const { products } = useCartContext();
+  const [state, dispatch] = useReducer(cartReducer, {
+    ...initialState,
+    products: products ? products : [],
+  });
 
-export default Home
+  console.log(products);
+  
+  console.log(state);
+
+  return <div>Home</div>;
+};
+
+export default Home;
