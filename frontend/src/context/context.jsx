@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 import axios from "axios";
-import { cartReducer } from "./reducers";
+import { cartReducer,initialState } from "./reducers";
 
 const CartContext = createContext();
 
@@ -20,9 +20,11 @@ const Context = ({ children }) => {
   useEffect(() => {
     fetch().then((res) => setProducts(res.data));
   }, []);
-
+  const [state, dispatch] = useReducer(cartReducer, {
+    ...initialState,
+  });
   return (
-    <CartContext.Provider value={{ products }}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{ products,state , dispatch }}>{children}</CartContext.Provider>
   );
 };
 

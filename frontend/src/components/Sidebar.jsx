@@ -1,78 +1,53 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
-const Sidebar = ({ onFilterChange }) => {
-  const [filters, setFilters] = useState({
-    rating: null,
-    price: null,
-    name: "",
-    inStock: false,
-  });
+const Sidebar = () => {
+  const [rating, setRating] = useState(0);
+  const handleRating = (i) => {
+    setRating(i+1);
+    console.log(i)
 
-  const handleFilterChange = () => {
-    onFilterChange(filters);
-  };
-
+  }
   return (
-    <div className="bg-gray-100 p-4">
-      <h2 className="text-lg font-semibold mb-3">Filters</h2>
-
-      <div className="mb-3">
-        <label htmlFor="rating">Rating</label>
-        <select
-          id="rating"
-          className="w-full border border-gray-300 p-1"
-          onChange={(e) => setFilters({ ...filters, rating: e.target.value })}
+    <>
+      <div className="flex flex-col gap-2">
+        <span className="font-extrabold text-textColor">Filters</span>
+        <span>
+          <label htmlFor="inline1" className="font-semibold text-textColor">
+            <input type="radio" name="group1" id="inline1" className="m-1 w-4 h-4 " />
+            Ascending
+          </label>
+        </span>
+        <span>
+          <label htmlFor="inline2" className="font-semibold text-textColor">
+            <input type="radio" name="group1" id="inline2" className="m-1 w-4 h-4" />
+            Descending 
+          </label>
+        </span>
+        <span>
+          <label htmlFor="" className="font-bold text-textColor">
+            Rating:{" "}
+          </label>
+          <span className="flex my-2">
+            {[...Array(5)].map((_, i) => (
+              <span className="text-textColor" key={i} onClick={()=> setRating(i+1)}>
+                {i < rating ? <AiFillStar /> : <AiOutlineStar />}
+              </span>
+            ))}
+          </span>
+        </span>
+        <button
+          type="button"
+          className="bg-textColor rounded-md text-white text-[14px] p-1"
         >
-          <option value="">Any</option>
-          <option value="5">5 stars</option>
-          <option value="4">4 stars & up</option>
-          <option value="3">3 stars & up</option>
-          <option value="2">2 stars & up</option>
-          <option value="1">1 star & up</option>
-        </select>
-      </div>
+          Clear Filters
+        </button>
 
-      <div className="mb-3">
-        <label htmlFor="price">Price</label>
-        <input
-          id="price"
-          type="number"
-          placeholder="Max price"
-          className="w-full border border-gray-300 p-1"
-          onChange={(e) => setFilters({ ...filters, price: e.target.value })}
-        />
-      </div>
 
-      <div className="mb-3">
-        <label htmlFor="name">Product Name</label>
-        <input
-          id="name"
-          type="text"
-          placeholder="Product name"
-          className="w-full border border-gray-300 p-1"
-          onChange={(e) => setFilters({ ...filters, name: e.target.value })}
-        />
-      </div>
 
-      <div className="mb-3">
-        <label>
-          <input
-            type="checkbox"
-            onChange={(e) =>
-              setFilters({ ...filters, inStock: e.target.checked })
-            }
-          />{" "}
-          In Stock
-        </label>
+      
       </div>
-
-      <button
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        onClick={handleFilterChange}
-      >
-        Apply Filters
-      </button>
-    </div>
+    </>
   );
 };
 

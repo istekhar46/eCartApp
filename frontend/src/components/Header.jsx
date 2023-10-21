@@ -4,6 +4,7 @@ import { BiMenu } from "react-icons/bi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
+import { useCartContext } from "../context/context";
 
 const navLinks = [
   {
@@ -21,7 +22,7 @@ const Header = () => {
   const menuRef = useRef(null);
 
   const navigate = useNavigate();
-
+   const{state:{cart}} = useCartContext();
  
   const toggleMenu = () => menuRef.current.classList.toggle("show_menu");
 
@@ -62,7 +63,7 @@ const Header = () => {
               <li className="text-[35px] relative cursor-pointer hover:text-primaryColor">
                 <AiOutlineShoppingCart />
                 <p className="absolute bottom-0 right-0 text-white font-bold text-[12px] bg-textColor rounded-full w-[50%] flex justify-center items-center">
-                  2
+                  {cart.length}
                 </p>
               </li>
               </Link>
