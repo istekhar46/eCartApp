@@ -1,0 +1,44 @@
+/* Home.css */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .sidebar {
+    flex: 1;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+  
+  .product-list {
+    flex: 4;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .product-card {
+    flex: 0 0 calc(33.33% - 20px);
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sticky-sidebar {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    flex: 1;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  /* Add more styles and adjust colors, fonts, and sizes as needed */
+  

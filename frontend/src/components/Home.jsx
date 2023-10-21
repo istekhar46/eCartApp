@@ -1,37 +1,39 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, useRef } from "react";
 import { useCartContext } from "../context/context";
 import { cartReducer, initialState } from "../context/reducers";
 import ItemCard from "./ItemCard";
 import Sidebar from "./Sidebar";
 
-// import "./Home.css"; // Import your custom stylesheet
-
 const Home = () => {
   const { products } = useCartContext();
+  const sidebarRef = useRef(null);
 
   const [state, dispatch] = useReducer(cartReducer, {
     ...initialState,
     products: products ? products : [],
   });
 
+
+
   useEffect(() => {
     if (products) {
       dispatch({ type: "setProducts", payload: products });
     }
-  }, [products]);
 
+  }, [products]);
   return (
-    <div className="container">
-      <div className="sticky-sidebar">
+    <div className="flex justify-between relative gap-10 ">
+      <div className="bg-gray-200 sticky_sidebar" >
         <Sidebar />
       </div>
-      <div className="product-list">
+      <div className="w-4/5 flex flex-wrap justify-center items-center ">
         {state.products &&
           state.products.map((product) => (
-            <div key={product.id} className="product-card">
-              <ItemCard product={product} />
-            </div>
-            // <p className="product-card">hello</p>
+           <div key={product.id} className="w-1/5 m-2">
+             <ItemCard product={product} />
+
+           </div>
+            
           ))}
       </div>
     </div>

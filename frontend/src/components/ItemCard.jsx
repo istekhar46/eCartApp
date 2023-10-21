@@ -23,7 +23,7 @@ const ItemCard = ({ product }) => {
             </span>
             <span className="text-[10px]">({product.rating.count})</span>
           </div>
-          <button type="button" className="bg-gray-500 p-2 text-[10px] rounded-md font-bold text-white">
+          <button onClick={()=> console.log('clicked')} type="button" className="bg-primaryColor p-2 text-[10px] rounded-md font-bold text-white">
             Add to Cart
           </button>
         </div>

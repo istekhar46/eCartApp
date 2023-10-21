@@ -22,29 +22,15 @@ const Header = () => {
 
   const navigate = useNavigate();
 
-  const handleStickyHeader = () => {
-    window.addEventListener("scroll", () => {
-      if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-      ) {
-        headerRef.current.classList.add("sticky_header");
-      } else {
-        headerRef.current.classList.remove("sticky_header");
-      }
-    });
-  };
+ 
   const toggleMenu = () => menuRef.current.classList.toggle("show_menu");
 
   useEffect(() => {
-    handleStickyHeader();
-
-    return () => window.removeEventListener("scroll", handleStickyHeader);
   });
 
   return (
-    <header className="header flex items-center mt-2" ref={headerRef}>
-      <div className="container shadow p-2" >
+    <header className="header flex items-center h-[80px] sticky_header">
+      <div className="container" >
         <div className="flex items-center justify-between">
           {/* =============== logo =========== */}
           <div>
