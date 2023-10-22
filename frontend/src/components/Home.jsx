@@ -5,6 +5,7 @@ import ItemCard from "./ItemCard";
 import Sidebar from "./Sidebar";
 
 const Home = () => {
+
   const { products } = useCartContext();
 
   const [state, dispatch] = useReducer(cartReducer, {
@@ -16,9 +17,11 @@ const Home = () => {
       dispatch({ type: "setProducts", payload: products });
     }
   }, [products]);
+
+  // console.log(state);
   return (
-    <div className="flex flex-col lg:flex-row justify-between relative gap-10">
-      <div className="lg:w-1/5 bg-gray-200 sticky_sidebar lg:block hidden">
+    <div className="flex flex-col lg:flex-row justify-between relative">
+      <div className="lg:w-1/5 bg-gray-200 sticky_sidebar lg:block hidden shadow-md p-5">
         <Sidebar />
       </div>
       <div className="lg:w-4/5 w-full flex flex-wrap justify-center items-center">

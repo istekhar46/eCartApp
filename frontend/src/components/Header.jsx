@@ -18,10 +18,8 @@ const navLinks = [
 ];
 
 const Header = () => {
-  const headerRef = useRef(null);
   const menuRef = useRef(null);
 
-  const navigate = useNavigate();
    const{state:{cart}} = useCartContext();
  
   const toggleMenu = () => menuRef.current.classList.toggle("show_menu");
@@ -42,14 +40,14 @@ const Header = () => {
           </div>
 
           <div>
-            <div className="contianer text-center ">
-              <div className="max-w-[370px]   mx-auto bg-[#0066ff2c] rounded-md flex items-center justify-center">
+            <div className=" text-center ">
+              <div className="max-w-[270px] mx-auto border border-r-0 rounded-md flex items-center justify-center">
                 <input
                   type="text"
                   placeholder="search products"
-                  className="w-full px-4 pl-4 pr-2 bg-transparent focus:outline-none cursor-pointer placeholder:text-textColor "
+                  className="w-full px-4 text-[12px] bg-transparent focus:outline-none cursor-pointer placeholder:text-textColor "
                 />
-                <button className="bg-[#0066ff]  px-5 py-3 text-white font-bold rounded-md">
+                <button className="bg-[#0066ff] text-[14px] p-2 text-white font-bold rounded-r-md">
                   Search
                 </button>
               </div>
@@ -62,9 +60,11 @@ const Header = () => {
               <Link to='/cart'>
               <li className="text-[35px] relative cursor-pointer hover:text-primaryColor">
                 <AiOutlineShoppingCart />
-                <p className="absolute bottom-0 right-0 text-white font-bold text-[12px] bg-textColor rounded-full w-[50%] flex justify-center items-center">
+                {cart.length > 0 && (
+                <p className="absolute hover:bg-primaryColor bottom-0 right-0 text-white font-bold text-[12px] bg-primaryColor rounded-full w-[50%] flex justify-center items-center">
                   {cart.length}
                 </p>
+                )}
               </li>
               </Link>
 

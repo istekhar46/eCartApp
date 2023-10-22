@@ -23,13 +23,11 @@ body {
 }
 .sticky_sidebar {
   width: 20vw;
-  height: 100vh;
-  /* line-height: 80px; */
+  height: 80vh;
   position: sticky;
   top: 85px;
   left: 0;
   background: white;
-  /* z-index: -1; */
   box-shadow: 3px 3px -8px 3px #ddd;
 }
 

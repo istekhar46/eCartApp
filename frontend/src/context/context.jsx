@@ -14,11 +14,11 @@ const Context = ({ children }) => {
   const [products, setProducts] = useState([]);
 
   const fetch = async () => {
-    return await axios.get("https://fakestoreapi.com/products");
+    return await axios.get("https://dummyjson.com/products");
   };
 
   useEffect(() => {
-    fetch().then((res) => setProducts(res.data));
+    fetch().then((res) => setProducts(res.data.products));
   }, []);
   const [state, dispatch] = useReducer(cartReducer, {
     ...initialState,

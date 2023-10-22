@@ -30,7 +30,7 @@ const Sidebar = () => {
           </label>
           <span className="flex my-2">
             {[...Array(5)].map((_, i) => (
-              <span className="text-textColor" key={i} onClick={()=> setRating(i+1)}>
+              <span className="text-yellow-400" key={i} onClick={()=> setRating(i+1)}>
                 {i < rating ? <AiFillStar /> : <AiOutlineStar />}
               </span>
             ))}
@@ -42,10 +42,6 @@ const Sidebar = () => {
         >
           Clear Filters
         </button>
-
-
-
-      
       </div>
     </>
   );
