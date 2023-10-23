@@ -1,8 +1,5 @@
-import logo from "../assets/images/asset0.webp";
-import userImg from "../assets/images/avatar-icon.png";
-import { BiMenu } from "react-icons/bi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { NavLink, Link,} from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { useCartContext } from "../context/context";
 

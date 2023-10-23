@@ -2,6 +2,7 @@ import { useCartContext } from "../context/context";
 import { AiFillDelete } from "react-icons/ai";
 import emptyCart from "../assets/img/pngwing.com.png";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { state, dispatch } = useCartContext();
@@ -21,7 +22,7 @@ const Cart = () => {
 
 
   return (
-    <div className="bg-white p-4 shadow-md rounded-md h-[70vh]">
+    <div className="bg-white p-4 shadow-md rounded-md">
       <h2 className="text-2xl font-semibold mb-4 text-textColor">
         Shopping Cart
       </h2>
@@ -39,6 +40,9 @@ const Cart = () => {
               <p className="text-textColor font-semibold">
                 Your cart is empty.
               </p>
+              <Link to='/home'>
+              <button className="bg-blue-500 font-semibold text-[12px] text-white p-2 rounded-md" type="button">Go Shopping</button>
+              </Link>
             </div>
           ) : (
             <ul>
@@ -47,7 +51,7 @@ const Cart = () => {
                   key={item.id}
                   className="flex items-center justify-between mb-2"
                 >
-                  <div className="flex lg:flex-row flex-col items-center justify-between mb-2 gap-2 text-textColor ">
+                  <div className="flex w-full m-2 hover:border-b-textColor border p-2 rounded-md lg:flex-row flex-col items-center justify-between mb-2 gap-2 text-textColor ">
                     <figure>
                       <img
                         className="max-h-[35px]"
@@ -56,19 +60,10 @@ const Cart = () => {
                       />
                     </figure>
                     <p className="font-bold">{item.title}</p>
-                    <p className="ml-2 font-semibold">Price: {item.price}$</p>
+                    <p className="ml-2 font-semibold"> {item.price}$</p>
                   </div>
-                  <div className="flex gap-3 items-center">
+                  <div className="flex gap-3 items-center active:border-b-textColor">
                     <div className="border px-2 py-1 flex gap-2 rounded-md font-bold text-[16px]">
-                      <button
-                        type="button"
-                        onClick={() =>
-                          dispatch({ type: "incProduct", payload: item })
-                        }
-                      >
-                        +
-                      </button>
-                      {item.qty}
                       <button
                         type="button"
                         onClick={() =>
@@ -76,6 +71,15 @@ const Cart = () => {
                         }
                       >
                         -
+                      </button>
+                      {item.qty}
+                      <button
+                        type="button"
+                        onClick={() =>
+                          dispatch({ type: "incProduct", payload: item })
+                        }
+                      >
+                        +
                       </button>
                     </div>
                     <div className="text-textColor text-[24px]">
