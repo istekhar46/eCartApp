@@ -111,7 +111,7 @@ const Sidebar = () => {
         </span>
         <button
           type="button"
-          className="bg-textColor rounded-md text-white text-[14px] p-1"
+          className="bg-blue-500 rounded-md text-white text-[14px] p-1"
           onClick={resetFilters}
         >
           Clear Filters

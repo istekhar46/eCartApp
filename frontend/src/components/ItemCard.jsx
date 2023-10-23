@@ -60,7 +60,7 @@ const ItemCard = ({ product }) => {
               onClick={handleRemoveFromCart}
               className="bg-red-500 p-2 text-xs rounded-md font-semibold text-white"
             >
-              Remove From Cart
+              Remove Item
             </button>
           ) : (
             <button
