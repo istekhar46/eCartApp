@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { FaFilter } from "react-icons/fa";
 import { useCartContext } from "../context/context";
@@ -8,7 +8,6 @@ const Categories = [
   "laptops",
   "skincare",
   "fragrances",
-  "women-dresses",
 ];
 
 const Sidebar = () => {
@@ -17,11 +16,14 @@ const Sidebar = () => {
     dispatchFilter,
   } = useCartContext();
 
+  const dropdwonRef = useRef(null);
+
   const [rating, setRating] = useState(0);
 
   const resetFilters = () => {
     dispatchFilter({ type: "resetFilters" });
     setRating(byRating);
+    dropdwonRef.current.value = "All"; 
   }
 
   return (
@@ -35,6 +37,7 @@ const Sidebar = () => {
         <span className="font-bold text-textColor">Categories</span>
         <span>
           <select
+          ref={dropdwonRef}
             name="inline1"
             id="group1"
             className="border p-2 rounded-md text-[14px] w-full focus:border-primaryColor focus:rounded-md focus:outline-none"
@@ -42,7 +45,7 @@ const Sidebar = () => {
               dispatchFilter({
                 type: "sortByCategory",
                 payload: e.target.value,
-              })
+              }, )
             }
           >
             <option className="shadow-sm text-textColor font-semibold">
@@ -56,7 +59,7 @@ const Sidebar = () => {
           </select>
         </span>
         <span>
-          <label htmlFor="" className="font-bold text-textColor">
+          <label htmlFor="rating" className="font-bold text-textColor">
             Rating:{" "}
           </label>
           <span className="flex my-2">
