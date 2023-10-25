@@ -42,9 +42,9 @@ const Header = () => {
                 <input
                   type="text"
                   placeholder="search products"
-                  className="w-full px-4 text-[12px] bg-transparent focus:outline-none cursor-pointer placeholder:text-textColor "
+                  className="w-[7rem] lg:w-full px-4 text-[12px] bg-transparent focus:outline-none cursor-pointer placeholder:text-textColor "
                 />
-                <button className="bg-[#0066ff] text-[14px] p-2 text-white font-bold rounded-r-md">
+                <button className="bg-[#0066ff] text-[14px] p-2 text-white font-bold w-[4rem] lg:w-full rounded-r-md">
                   Search
                 </button>
               </div>
@@ -52,18 +52,18 @@ const Header = () => {
           </div>
 
           {/* =============== menu =========== */}
-          <div className="navigation" ref={menuRef} onClick={toggleMenu}>
-            <ul className="menu flex items-center gap-[2.7rem]">
+          <div className="navigation flex gap-2" ref={menuRef} onClick={toggleMenu}>
               <Link to='/cart'>
-              <li className="text-[35px] relative cursor-pointer hover:text-primaryColor">
+              <div className="text-[35px] relative cursor-pointer hover:text-primaryColor">
                 <AiOutlineShoppingCart />
                 {cart.length > 0 && (
                 <p className="absolute hover:bg-primaryColor bottom-0 right-0 text-white font-bold text-[12px] bg-primaryColor rounded-full w-[50%] flex justify-center items-center">
                   {cart.length}
                 </p>
                 )}
-              </li>
+              </div>
               </Link>
+            <ul className="menu lg:flex items-center gap-[2.7rem] hidden">
 
               {navLinks.map((link, index) => (
                 <li key={index}>

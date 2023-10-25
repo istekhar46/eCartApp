@@ -8,6 +8,7 @@ const Categories = [
   "laptops",
   "skincare",
   "fragrances",
+  "groceries",
 ];
 
 const Sidebar = () => {
@@ -67,7 +68,6 @@ const Sidebar = () => {
               <span
                 className="text-yellow-400"
                 key={i}
-                // onChange={() => setRating(i + 1)}
                 onClick={() =>
                   dispatchFilter(
                     { type: "sortByRating", payload: i + 1 },
