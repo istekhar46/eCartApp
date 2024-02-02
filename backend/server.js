@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// API routes
+//? API routes
 app.use('/api/user', userRoutes);
 
 // Serve the frontend in production
@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-// Error handling middleware - Place it after all your routes and middleware
+// Error handling middleware
 app.use(notFound);
 app.use(errorHandler);
 
