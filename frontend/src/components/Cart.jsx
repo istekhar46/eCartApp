@@ -3,8 +3,11 @@ import { AiFillDelete } from "react-icons/ai";
 import emptyCart from "../assets/img/pngwing.com.png";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import InvoicePdf from "../pages/InvoicePdf";
 
 const Cart = () => {
+
   const { state, dispatch } = useCartContext();
   const [total, setTotal] = useState(0);
 
@@ -18,8 +21,7 @@ const Cart = () => {
 
   useEffect(() => {
     calcTotal();
-  }, [calcTotal]);
-
+  }, [state.cart]);
 
   return (
     <div className="bg-white p-4 shadow-md rounded-md">
@@ -31,17 +33,18 @@ const Cart = () => {
           {state.cart.length === 0 ? (
             <div className="flex justify-center items-center flex-col h-full">
               <figure>
-                <img
-                  className="lg:h-[10rem]"
-                  src={emptyCart}
-                  alt=""
-                />
+                <img className="lg:h-[10rem]" src={emptyCart} alt="" />
               </figure>
               <p className="text-textColor font-semibold">
                 Your cart is empty.
               </p>
-              <Link to='/home'>
-              <button className="bg-blue-500 font-semibold text-[12px] text-white p-2 rounded-md" type="button">Go Shopping</button>
+              <Link to="/home">
+                <button
+                  className="bg-blue-500 font-semibold text-[12px] text-white p-2 rounded-md"
+                  type="button"
+                >
+                  Go Shopping
+                </button>
               </Link>
             </div>
           ) : (
@@ -109,9 +112,19 @@ const Cart = () => {
               <p>Total Amount:</p>
               <p>${total}</p>
             </div>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
-              Checkout
-            </button>
+            {/* <Link to='/invoice'> */}
+            <PDFDownloadLink
+              document={<InvoicePdf cart={state.cart} total={total} />}
+              fileName="invoice"
+            >
+              <button
+                type="button"
+                className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-primaryColor"
+              >
+                Generate Invoice
+              </button>
+            </PDFDownloadLink>
+            {/* </Link> */}
           </div>
         </div>
       </div>

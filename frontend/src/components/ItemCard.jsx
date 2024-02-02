@@ -34,7 +34,7 @@ const ItemCard = ({ product }) => {
   return (
     <>
       <div>
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="w-full max-w-sm bg-white border-gray-200 rounded-lg shadow dark:bg-gray-600 ">
           <Slider {...sliderSettings} className="mb-3 selection">
             {images.map((item, index) => (
               <div key={index} className="relative h-[15rem]">
@@ -46,25 +46,27 @@ const ItemCard = ({ product }) => {
               </div>
             ))}
           </Slider>
-          <div className="px-5 pb-5">
+          <div className="px-5 pb-5 py-3">
             <a href="#">
-              <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              <h5 className="text-md font-semibold tracking-tight text-gray-900 dark:text-white">
                 {product.title}
               </h5>
             </a>
-            <div className="flex items-center mt-2.5 mb-5">
+            <div className="flex items-center mt-2.5 mb-5 text-xs">
               {[...Array(Math.floor(product.rating)).keys()].map((_, i) => (
                 <span className="text-yellow-400" key={i}>
                   <AiFillStar />
                 </span>
               ))}
 
-              <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+              <span className="bg-blue-100 text-blue-800 text-[10px] font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
                 {product.rating}
-              </span>
+              </span> 
+              <span className=" text-green-100 text-xs font-semibold rounded ml-3"
+              >gst 18%</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-3xl font-bold text-gray-900 dark:text-white">
+              <span className="text-xl font-bold text-gray-900 dark:text-white">
                 ${product.price}
               </span>
               <div className="flex justify-between items-center">

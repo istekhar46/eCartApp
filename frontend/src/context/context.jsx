@@ -6,7 +6,12 @@ import {
   useState,
 } from "react";
 import axios from "axios";
-import { cartReducer, filterReducer, initialState, filterInitialState  } from "./reducers";
+import {
+  cartReducer,
+  filterReducer,
+  initialState,
+  filterInitialState,
+} from "./reducers";
 
 const CartContext = createContext();
 
@@ -26,9 +31,11 @@ const Context = ({ children }) => {
 
   const [filterState, dispatchFilter] = useReducer(filterReducer, {
     ...filterInitialState,
-  })
+  });
   return (
-    <CartContext.Provider value={{ products, state, dispatch,filterState,dispatchFilter }}>
+    <CartContext.Provider
+      value={{ products, state, dispatch, filterState, dispatchFilter }}
+    >
       {children}
     </CartContext.Provider>
   );
