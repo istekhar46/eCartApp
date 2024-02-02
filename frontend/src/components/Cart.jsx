@@ -1,6 +1,6 @@
 import { useCartContext } from "../context/context";
 import { AiFillDelete } from "react-icons/ai";
-import emptyCart from "../assets/img/pngwing.com.png";
+import emptyCart from "../assets/img/emtyCartIMG.png";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PDFDownloadLink } from "@react-pdf/renderer";
