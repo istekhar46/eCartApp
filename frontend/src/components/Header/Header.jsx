@@ -72,7 +72,9 @@ const Header = () => {
           {/* =============== logo =========== */}
           <div>
             {/* <img src={logo} alt="image" /> */}
+            <Link to="/home">
             <h2 className="font-[800] text-black">Cart App</h2>
+            </Link>
           </div>
 
           {/* =============== menu =========== */}
