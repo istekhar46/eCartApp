@@ -73,7 +73,7 @@ const Header = () => {
           <div>
             {/* <img src={logo} alt="image" /> */}
             <Link to="/home">
-            <h2 className="font-[800] text-black">Cart App</h2>
+            <h2 className="font-[800] text-black cursor-pointer">Cart App</h2>
             </Link>
           </div>
 
